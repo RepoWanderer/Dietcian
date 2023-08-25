@@ -1,0 +1,55 @@
+{% extends 'basechat.html' %}
+
+{% load static %}
+
+{% block title %}Coaches chats | {{name}}{% endblock %}
+
+{% block body %}
+<div class='py-4 mt-auto'>
+    <div class='container-fluid px-4'>
+        <a href="{% url 'coaches' %}" class='btn btn-outline-primary my-3'>Go Back</a>
+
+        <h3>{{ name }}</h3>
+        <h5>{{ type }}</h5>
+
+        <div class='row justify-content-center'>
+            <div class='col-6'>
+
+                {% for image in images %}
+                    <!-- Food image -->
+                    <img src="{{ image.image.url|default:'../../static/images/no_image.png' }}"
+                            class='img-fluid'
+                            alt='image'>
+                {% endfor %}
+            </div>
+            
+                <br><br>
+                
+                <div class='card-title'>
+                    <div class='btn btn-outline-primary my-3'>
+                        <div class='card-title'>
+                        <h4><a href="{% url 'msg_coach' id %}">drop a message</a></h4>
+                        </div>
+                    </div>
+                    <br>
+                    <div class='btn btn-outline-primary my-3'>
+                        <div class='card-title'>
+                        <h4><a href="#">connect live</a></h4>
+                        </div>
+                    </div>
+                </div>
+                
+
+        </div>
+
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+    <!-- Page level plugins -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="{% static 'js/foodDetails.js' %}"></script>
+{% endblock %}

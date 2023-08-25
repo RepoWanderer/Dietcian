@@ -1,0 +1,51 @@
+{% extends 'basechat.html' %}
+
+{% block title %}Food Tracker | Chats{% endblock %}
+
+{% block body %}
+<div class='py-4 mt-auto'>
+    <div class='container px-4'>
+
+        <div class='d-flex justify-content-center'>
+            <h3>message</h3>
+        </div>
+
+        {% if message %}
+            <div>{{ message }}</div>
+        {% endif %}
+
+        <div class='row'>
+            <div class='col-lg-6 offset-lg-3'>
+                <div class='card bg-secondary mb-3'>
+                    <div class='card-body'>
+                        <div class='form-group'>
+                            <form action="" method='POST'>
+                                {% csrf_token %}
+                                <div class='form-group'>
+                                    <label class='form-label mt-4'>
+                                        subject
+                                    </label>
+                                    <br>
+                                    <input type='text' class='form-control' name='subject' placeholder='SUBJECT'>
+                                </div>
+                                <div class='form-group'>
+                                    <label class='form-label mt-4'>
+                                        query
+                                    </label>
+                                    <br>
+                                    <input type='text' class='form-control' name='details' placeholder='ask me anything'>
+                                </div>
+                                <div class='form-group mt-4'>
+                                    <input type='submit' class='btn btn-primary'>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
+
